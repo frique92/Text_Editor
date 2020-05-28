@@ -49,10 +49,9 @@ public class TextEditor extends JFrame {
         setJMenuBar(menuBar);
 
         JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        mainPanel.setLayout(new FlowLayout());
 
         JPanel panelSetting = new JPanel();
-        panelSetting.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
         JTextField textFieldFile = new JTextField();
         textFieldFile.setName("FilenameField");
@@ -72,14 +71,14 @@ public class TextEditor extends JFrame {
         panelSetting.add(buttonSave);
         panelSetting.add(buttonLoad);
 
-        JTextArea textAreaText = new JTextArea();
+        JTextArea textAreaText = new JTextArea(24, 36);
         textAreaText.setName("TextArea");
 
         JScrollPane jScrollPaneText = new JScrollPane(textAreaText);
         jScrollPaneText.setName("ScrollPane");
+        jScrollPaneText.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         mainPanel.add(panelSetting);
-        mainPanel.add(textAreaText);
         mainPanel.add(jScrollPaneText);
 
         add(mainPanel, BorderLayout.CENTER);
